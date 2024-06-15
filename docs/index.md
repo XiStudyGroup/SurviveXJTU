@@ -1,6 +1,6 @@
 <img src="./images/title.png" alt="title" style="display: block; margin: 0 auto; zoom: 50%;">
 
-## 关于我们
+# 关于我们
 
 汐学组是西安交通大学人工智能专业的一些学生自发组织的类学辅组织，采用扁平化管理，成果开源。
 
