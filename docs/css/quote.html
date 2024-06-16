@@ -6,21 +6,17 @@
     <style>
         #quote-container {
             background-color: rgba(0, 0, 255, 0.1);
-            /* 蓝色背景，透明度为0.1 */
             padding: 5px;
             border-radius: 10px;
-            /* 圆角边框 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
             transition: opacity 1s ease-in-out;
-            /* 添加淡入淡出效果 */
         }
 
         #quote {
             color: black;
             font-weight: bold;
             font-size: 1em;
-            /* 增加字体大小 */
         }
 
         #author {
@@ -29,7 +25,6 @@
             font-style: italic;
             color: #555;
             font-size: 1em;
-            /* 增加字体大小 */
         }
     </style>
 </head>
@@ -48,33 +43,23 @@
             function displayRandomQuote() {
                 var randomIndex = Math.floor(Math.random() * quotes.length);
                 var randomQuote = quotes[randomIndex];
-
                 var quoteContainer = document.getElementById("quote-container");
                 var quoteElement = document.getElementById("quote");
                 var authorElement = document.getElementById("author");
-
-                // 淡出效果
                 quoteContainer.style.opacity = 0;
 
                 setTimeout(function () {
-                    // 更新内容
                     quoteElement.innerText = randomQuote.text;
                     authorElement.innerText = "- " + randomQuote.author;
                     window.parent.postMessage({
                         type: 'quoteHeight',
                         height: document.documentElement.scrollHeight
                     }, '*');
-                    // 淡入效果
                     quoteContainer.style.opacity = 1;
-                }, 5000); // 与transition时间一致
+                }, 2000);
             }
-
-            // 初始显示
             displayRandomQuote();
-
-            // 每10秒切换一次
-            setInterval(displayRandomQuote, 10000);
-
+            setInterval(displayRandomQuote, 6000);
             window.parent.postMessage({
                 type: 'quoteHeight',
                 height: document.documentElement.scrollHeight
