@@ -13,3 +13,5 @@
 最后，欢迎来到西安交通大学。
 
 <u>**出于急切的初始化需求，本教程根据同样汐学组发布的[人工智能新生指南v2.0.0beta](https://xistudygroup.github.io/XiStudyGroup/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%96%B0%E7%94%9F%E6%8C%87%E5%8D%972024/)进行了快速初始化，创建的诸多的章节，然而其中大多数的内容并未进行精修，目前精修进度至<mark>保研篇/前言</mark>**</u>
+
+<iframe id="quote-iframe" src="css/quote.html" style="border:none; width:100%; height:50pt; overflow:hidden;"></iframe>
