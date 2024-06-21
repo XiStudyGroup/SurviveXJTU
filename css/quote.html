@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Random Quote</title>
+    <style>
+        #quote-container {
+            background-color: rgba(0, 0, 255, 0.1);
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #quote {
+            color: black;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        #author {
+            margin-top: -4px;
+            font-weight: normal;
+            font-style: italic;
+            color: #555;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="quote-container">
+        <div id="quote"></div>
+        <div id="author"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var quotes = [
+                { text: "汝为山河过客 却总长叹伤离别", author: "《一笑江湖》" },
+                { text: "天地本宽，而鄙者自隘，风花雪月本闲，而扰攘者自冗。", author: "《菜根谭》" },
+            ];
+            function displayRandomQuote() {
+                var randomIndex = Math.floor(Math.random() * quotes.length);
+                var randomQuote = quotes[randomIndex];
+                var quoteContainer = document.getElementById("quote-container");
+                var quoteElement = document.getElementById("quote");
+                var authorElement = document.getElementById("author");
+                quoteContainer.style.opacity = 0;
+
+                setTimeout(function () {
+                    quoteElement.innerText = randomQuote.text;
+                    authorElement.innerText = "- " + randomQuote.author;
+                    window.parent.postMessage({
+                        type: 'quoteHeight',
+                        height: document.documentElement.scrollHeight
+                    }, '*');
+                    quoteContainer.style.opacity = 1;
+                }, 2000);
+            }
+            displayRandomQuote();
+            setInterval(displayRandomQuote, 6000);
+            window.parent.postMessage({
+                type: 'quoteHeight',
+                height: document.documentElement.scrollHeight
+            }, '*');
+        });
+    </script>
+</body>
+
+</html>
